@@ -1,0 +1,6 @@
+1. run the installer.
+2. run mysql server on your machine
+3. run Inventory System that are created by the installer on your desktop.
+4. On the first run will provide all the mysql credentials together with the admin account you want to register in the system 
+   for the application and it will create a database for you.
+5. Enjoy !!!!

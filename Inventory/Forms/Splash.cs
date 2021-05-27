@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 using Inventory.BusinessLayer;
 
 namespace Inventory.Forms
@@ -33,7 +34,7 @@ namespace Inventory.Forms
         private void Check_AppSettings()
         {
             BL_Splash.Set_AppSettings();
-
+            
             if (BL_Splash.isFirstRun())
             {
                 BL_AppSettings.Create_Directories();

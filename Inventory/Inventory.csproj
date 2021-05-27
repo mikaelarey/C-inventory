@@ -36,6 +36,10 @@
   <PropertyGroup>
     <ApplicationIcon>inventory.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
@@ -423,6 +427,9 @@
     <EmbeddedResource Include="SalesReport.rdlc" />
     <EmbeddedResource Include="TransactionReport.rdlc" />
     <None Include="App.config" />
+    <None Include="app.manifest">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\DataSources\Inventory.Models.ReceiptModel.datasource" />
     <None Include="Properties\DataSources\Inventory.Models.SalesReportModel.datasource" />
     <None Include="Properties\DataSources\Inventory.Models.TransactionReportModel.datasource" />
