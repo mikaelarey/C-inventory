@@ -1,0 +1,9 @@
+1. Run the installer.
+2. Create new database to your MySQL server and name it inventory_management.
+3. Import the inventory_management.sql to your newly created database.
+4. Run the application. Upon installation it will create a desktop shortcut and just run it
+5. Login to the system. 
+   Username: admin
+   Password: 123456
+
+6. Enjoy!!!
