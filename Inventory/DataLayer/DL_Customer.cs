@@ -18,40 +18,50 @@ namespace Inventory.DataLayer
 
             string InsertProductWithOutImage = @"INSERT INTO customer(first_name, last_name, contact, address, image) 
                                                  VALUES('" + customer.FristName + "', '" + customer.LastName + "', '" + customer.ContactNumber + "', '" + customer.Address + "', '" + customer.ImageFileName + "');" +
-                                                "SET @last_id = LAST_INSERT_ID();";
+                                                "SET @last_id = LAST_INSERT_ID(); SELECT @last_id as inserted_id";
 
             string InsertProductWithImage = @"INSERT INTO customer(first_name, last_name, contact, address, image) 
                                               VALUES('" + customer.FristName + "', '" + customer.LastName + "', '" + customer.ContactNumber + "', '" + customer.Address + "', '" + customer.ImageFileName + "');" +
-                                             "SET @last_id = LAST_INSERT_ID(); UPDATE `customer` SET `image`= CONCAT(@last_id, '.jpg') WHERE customer_id = @last_id;";
+                                             "SET @last_id = LAST_INSERT_ID(); UPDATE `customer` SET `image`= CONCAT(@last_id, '.jpg') WHERE customer_id = @last_id; SELECT @last_id as inserted_id";
 
             try
             {
-                using (var connection = new MySqlConnection())
-                {
-                    connection.ConnectionString = General.Build_ConnectionString();
+                //using (var connection = new MySqlConnection())
+                //{
+                //    connection.ConnectionString = General.Build_ConnectionString();
 
-                    connection.Open();
-                    var command = connection.CreateCommand();
-                    command.CommandText = (customer.CustomerImage == null) ? InsertProductWithOutImage : InsertProductWithImage;
-                    command.ExecuteNonQuery();
-                }
+                //    connection.Open();
+                //    var command = connection.CreateCommand();
+                //    command.CommandText = (customer.CustomerImage == null) ? InsertProductWithOutImage : InsertProductWithImage;
+                //    command.ExecuteNonQuery();
+                //}
 
                 using (MySqlConnection connect = new MySqlConnection(General.Build_ConnectionString()))
                 using (MySqlCommand cmd = new MySqlCommand())
                 {
-                    string commandLine = "SELECT * FROM `customer` WHERE customer_id=@last_id LIMIT 1;";
-                    cmd.CommandText = commandLine;
+                    //string commandLine = "SELECT * FROM `customer` WHERE customer_id=@last_id LIMIT 1;";
+                    cmd.CommandText = (customer.CustomerImage == null) ? InsertProductWithOutImage : InsertProductWithImage; ;
 
                     cmd.Connection = connect;
                     cmd.Connection.Open();
 
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    //using (MySqlDataReader reader = cmd.ExecuteReader())
+                    //{
+                    //    if (reader.HasRows)
+                    //    {
+                    //        reader.Read();
+                    //        InsertedId = Convert.ToInt32(reader["customer_id"].ToString());
+                    //    }
+                    //}
+
+                    DataSet ds = new DataSet();
+
+                    using (MySqlDataAdapter da = new MySqlDataAdapter(cmd))
                     {
-                        if (reader.HasRows)
-                        {
-                            reader.Read();
-                            InsertedId = Convert.ToInt32(reader["customer_id"].ToString());
-                        }
+                        da.Fill(ds);
+
+                        if (ds.Tables[0].Rows.Count > 0)
+                            InsertedId = Convert.ToInt32(ds.Tables[0].Rows[0]["inserted_id"]);
                     }
                 }
 

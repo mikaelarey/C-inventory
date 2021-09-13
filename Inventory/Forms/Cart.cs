@@ -74,11 +74,15 @@ namespace Inventory.Forms
             int TotalQuantity = 0;
             decimal TotalPrice = 0;
 
-            for (int i = 0; i < DG_Cart.Rows.Count; ++i)
+            try
             {
-                TotalQuantity += Convert.ToInt32(DG_Cart.Rows[i].Cells["Quantity"].Value);
-                TotalPrice += Convert.ToDecimal(DG_Cart.Rows[i].Cells["TotalPrice"].Value);
+                for (int i = 0; i < DG_Cart.Rows.Count; ++i)
+                {
+                    TotalQuantity += Convert.ToInt32(DG_Cart.Rows[i].Cells["Quantity"].Value);
+                    TotalPrice += Convert.ToDecimal(DG_Cart.Rows[i].Cells["TotalPrice"].Value);
+                }
             }
+            catch (Exception ex) { }
 
             Lbl_TotalQuantity.Text = TotalQuantity.ToString();
             Lbl_TotalPriceSummary.Text = TotalPrice.ToString();

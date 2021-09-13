@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using Inventory.Models;
 using Inventory.BusinessLayer;
 
-namespace Inventory.Forms.UserControls.Main
+namespace Inventory.Forms.UserControls.MainUserControl
 {
     public partial class Reports : UserControl
     {

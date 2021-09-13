@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using Inventory.Models;
 using Inventory.BusinessLayer;
 
-namespace Inventory.Forms.UserControls.Main
+namespace Inventory.Forms.UserControls.MainUserControl
 {
     public partial class Inventory : UserControl
     {
@@ -27,40 +27,49 @@ namespace Inventory.Forms.UserControls.Main
 
         void Inventory_Load(object sender, EventArgs e)
         {
-            BL_Cart.Initialize_CartData();
-
-            ProductDetails.Visible = false;
-            DG_Products.DataSource = BL_Product.Get_All_Product();
-            DG_Products.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            DG_Products.MultiSelect = false;
-            DG_Products.ReadOnly = true;
-            
-            DG_Products.Columns["product_id"].Visible = false;
-            DG_Products.Columns["product_brand_id"].Visible = false;
-            DG_Products.Columns["photo"].Visible = false;
-            
-            DG_Products.Columns["name"].HeaderText = "Product Name";
-            DG_Products.Columns["quantity"].HeaderText = "Remaining Stocks";
-            DG_Products.Columns["unit"].HeaderText = "Unit";
-            DG_Products.Columns["description"].HeaderText = "Description";
-            DG_Products.Columns["purchased_price"].HeaderText = "Purchased Price";
-            DG_Products.Columns["selling_price"].HeaderText = "Selling Price";
-            DG_Products.Columns["product_brand_name"].HeaderText = "Product Brand";
-
-            foreach (DataGridViewColumn col in DG_Products.Columns)
+            try
             {
-                col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                col.HeaderCell.Style.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Pixel);
+                BL_Cart.Initialize_CartData();
+
+                ProductDetails.Visible = false;
+                DG_Products.DataSource = BL_Product.Get_All_Product();
+                DG_Products.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                DG_Products.MultiSelect = false;
+                DG_Products.ReadOnly = true;
+
+                DG_Products.Columns["product_id"].Visible = false;
+                DG_Products.Columns["product_brand_id"].Visible = false;
+                DG_Products.Columns["photo"].Visible = false;
+
+                DG_Products.Columns["name"].HeaderText = "Product Name";
+                DG_Products.Columns["quantity"].HeaderText = "Remaining Stocks";
+                DG_Products.Columns["unit"].HeaderText = "Unit";
+                DG_Products.Columns["description"].HeaderText = "Description";
+                DG_Products.Columns["purchased_price"].HeaderText = "Purchased Price";
+                DG_Products.Columns["selling_price"].HeaderText = "Selling Price";
+                DG_Products.Columns["product_brand_name"].HeaderText = "Product Brand";
+
+                foreach (DataGridViewColumn col in DG_Products.Columns)
+                {
+                    col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    col.HeaderCell.Style.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Pixel);
+                }
+
+                btn_AddToCart.Visible = false;
+                Lbl_AlreadyAddedToCart.Visible = false;
+                Lbl_NoStocksAvailable.Visible = false;
+                Lbl_Quantity.Visible = false;
+                TB_Quantity.Visible = false;
+
+                if (AuthenticatedUser.InventoryModify != 1)
+                    btn_ViewCart.Visible = false;
+
+                DG_Products.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
+            catch (Exception ex)
+            { }
 
-            btn_AddToCart.Visible = false;
-            Lbl_AlreadyAddedToCart.Visible = false;
-            Lbl_NoStocksAvailable.Visible = false;
-            Lbl_Quantity.Visible = false;
-            TB_Quantity.Visible = false;
-
-            if (AuthenticatedUser.InventoryModify != 1)
-                btn_ViewCart.Visible = false;
+            
         }
 
         private void GetSelectedData()
@@ -126,6 +135,7 @@ namespace Inventory.Forms.UserControls.Main
             Cart cart = new Cart();
             cart.ShowDialog();
             DG_Products.DataSource = BL_Product.Get_All_Product();
+            cart.Dispose();
         }
 
         private void btn_Refresh_Click(object sender, EventArgs e)
@@ -170,6 +180,11 @@ namespace Inventory.Forms.UserControls.Main
             TB_Quantity.Visible = false;
 
             MessageBox.Show("Successfully added to cart.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
     }

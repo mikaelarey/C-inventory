@@ -1,4 +1,4 @@
-﻿namespace Inventory.Forms.UserControls.Main
+﻿namespace Inventory.Forms.UserControls.MainUserControl
 {
     partial class Sales
     {
@@ -521,6 +521,7 @@
             // 
             // DG_Products
             // 
+            this.DG_Products.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DG_Products.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DG_Products.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DG_Products.Location = new System.Drawing.Point(0, 0);

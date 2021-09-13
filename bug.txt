@@ -1,0 +1,3 @@
+cart cart summary not updated on product update
+
+menu - reload data not updating the out of stock product

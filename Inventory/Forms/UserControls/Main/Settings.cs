@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Inventory.Models;
 
-namespace Inventory.Forms.UserControls.Main
+namespace Inventory.Forms.UserControls.MainUserControl
 {
     public partial class Settings : UserControl
     {

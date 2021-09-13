@@ -1,4 +1,4 @@
-﻿namespace Inventory.Forms.UserControls.Main
+﻿namespace Inventory.Forms.UserControls.MainUserControl
 {
     partial class Menu
     {

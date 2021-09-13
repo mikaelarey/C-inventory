@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory", "Inventory\Inventory.csproj", "{04AC1BE4-6A29-49C2-BA90-B5779A3020BE}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Installer", "Installer\Installer.vdproj", "{540E8E3F-D2AB-4E55-B7DB-1850F83E2E77}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "Setup1\Setup1.vdproj", "{2BC05FC8-9328-4DBE-A096-291E7552F3CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +15,8 @@ Global
 		{04AC1BE4-6A29-49C2-BA90-B5779A3020BE}.Debug|x86.Build.0 = Debug|x86
 		{04AC1BE4-6A29-49C2-BA90-B5779A3020BE}.Release|x86.ActiveCfg = Release|x86
 		{04AC1BE4-6A29-49C2-BA90-B5779A3020BE}.Release|x86.Build.0 = Release|x86
-		{540E8E3F-D2AB-4E55-B7DB-1850F83E2E77}.Debug|x86.ActiveCfg = Debug
-		{540E8E3F-D2AB-4E55-B7DB-1850F83E2E77}.Release|x86.ActiveCfg = Release
+		{2BC05FC8-9328-4DBE-A096-291E7552F3CE}.Debug|x86.ActiveCfg = Debug
+		{2BC05FC8-9328-4DBE-A096-291E7552F3CE}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

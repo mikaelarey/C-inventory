@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Inventory.BusinessLayer;
 
-namespace Inventory.Forms.UserControls.Main
+namespace Inventory.Forms.UserControls.MainUserControl
 {
     public partial class UserAccounts : UserControl
     {
@@ -20,23 +20,31 @@ namespace Inventory.Forms.UserControls.Main
 
         void UserAccounts_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = BL_UserAccount.Get_All_Users();
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.MultiSelect = false;
-            dataGridView1.ReadOnly = true;
-
-            dataGridView1.Columns["user_id"].HeaderText = "User ID";
-            dataGridView1.Columns["firstname"].HeaderText = "First Name";
-            dataGridView1.Columns["lastname"].HeaderText = "Last Name";
-            dataGridView1.Columns["username"].HeaderText = "Username";
-            dataGridView1.Columns["active"].HeaderText = "Active Status";
-
-            foreach (DataGridViewColumn col in dataGridView1.Columns)
+            try
             {
-                col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                col.HeaderCell.Style.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Pixel);
-            }
+                dataGridView1.DataSource = BL_UserAccount.Get_All_Users();
+                dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                dataGridView1.MultiSelect = false;
+                dataGridView1.ReadOnly = true;
 
+                dataGridView1.Columns["user_id"].HeaderText = "User ID";
+                dataGridView1.Columns["firstname"].HeaderText = "First Name";
+                dataGridView1.Columns["lastname"].HeaderText = "Last Name";
+                dataGridView1.Columns["username"].HeaderText = "Username";
+                dataGridView1.Columns["active"].HeaderText = "Active Status";
+
+                foreach (DataGridViewColumn col in dataGridView1.Columns)
+                {
+                    col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    col.HeaderCell.Style.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Pixel);
+                }
+
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            }
+            catch (Exception ex)
+            { }
+
+            
         }
 
         private void btn_Refresh_Click(object sender, EventArgs e)

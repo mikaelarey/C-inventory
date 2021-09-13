@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Inventory.BusinessLayer;
 
-namespace Inventory.Forms.UserControls.Main
+namespace Inventory.Forms.UserControls.MainUserControl
 {
     public partial class Menu : UserControl
     {
@@ -20,24 +20,31 @@ namespace Inventory.Forms.UserControls.Main
 
         void Menu_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = BL_Menu.Get_Best_Seller();
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.MultiSelect = false;
-            dataGridView1.ReadOnly = true;
-
-            dataGridView1.Columns["name"].HeaderText = "Product Name";
-            dataGridView1.Columns["price"].HeaderText = "Price";
-            dataGridView1.Columns["sold_item"].HeaderText = "Number Of Items Sold";
-            dataGridView1.Columns["total_price_sold"].HeaderText = "Total Sold Price";
-
-            foreach (DataGridViewColumn col in dataGridView1.Columns)
+            try 
             {
-                col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                col.HeaderCell.Style.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Pixel);
-            }
+                dataGridView1.DataSource = BL_Menu.Get_Best_Seller();
+                dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                dataGridView1.MultiSelect = false;
+                dataGridView1.ReadOnly = true;
 
-            Lbl_UserCount.Text = (BL_Menu.User_Count()).ToString();
-            Lbl_ProductCount.Text = (BL_Menu.Product_Count()).ToString();
+                dataGridView1.Columns["name"].HeaderText = "Product Name";
+                dataGridView1.Columns["price"].HeaderText = "Price";
+                dataGridView1.Columns["sold_item"].HeaderText = "Number Of Items Sold";
+                dataGridView1.Columns["total_price_sold"].HeaderText = "Total Sold Price";
+
+                foreach (DataGridViewColumn col in dataGridView1.Columns)
+                {
+                    col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    col.HeaderCell.Style.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Pixel);
+                }
+
+                Lbl_UserCount.Text = (BL_Menu.User_Count()).ToString();
+                Lbl_ProductCount.Text = (BL_Menu.Product_Count()).ToString();
+
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            }
+            catch(Exception ex)
+            {}
         }
 
         private void btn_Refresh_Click(object sender, EventArgs e)

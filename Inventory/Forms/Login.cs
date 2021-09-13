@@ -57,7 +57,7 @@ namespace Inventory.Forms
             {
                 this.Hide();
 
-                Main main = new Main();
+                UC_Main main = new UC_Main();
                 main.Show();
             }
 

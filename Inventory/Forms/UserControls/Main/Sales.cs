@@ -10,7 +10,7 @@ using Inventory.Models;
 using Inventory.BusinessLayer;
 using Inventory.Properties;
 
-namespace Inventory.Forms.UserControls.Main
+namespace Inventory.Forms.UserControls.MainUserControl
 {
     public partial class Sales : UserControl
     {
@@ -22,44 +22,55 @@ namespace Inventory.Forms.UserControls.Main
 
         void Sales_Load(object sender, EventArgs e)
         {
-            BL_Sales.Get_All_Transactions();
-            DG_Products.DataSource = BL_Sales.TransactionData;
-            DG_Products.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            DG_Products.MultiSelect = false;
-            DG_Products.ReadOnly = true;
-
-            DG_OrderDetails.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            DG_OrderDetails.MultiSelect = false;
-            DG_OrderDetails.ReadOnly = true;
-
-            DG_Products.Columns["order_ids"].HeaderText = "Order Number";
-            DG_Products.Columns["customer_name"].HeaderText = "Customer Name";
-            DG_Products.Columns["customer_address"].HeaderText = "Delivery Address";
-            DG_Products.Columns["customer_contact"].HeaderText = "Contact Number";
-            DG_Products.Columns["number_of_products"].HeaderText = "Number Of Products";
-            DG_Products.Columns["number_of_items"].HeaderText = "Number Of Items";
-            DG_Products.Columns["total_price"].HeaderText = "Total Price";
-            DG_Products.Columns["purchased_date"].HeaderText = "Purchased Date";
-            DG_Products.Columns["order_status"].HeaderText = "Order Status";
-
-            DG_Products.Columns["customer_image"].Visible = false;
-            DG_Products.Columns["order_status_id"].Visible = false;
-
-            foreach (DataGridViewColumn col in DG_Products.Columns)
+            try
             {
-                col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                col.HeaderCell.Style.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Pixel);
+                BL_Sales.Get_All_Transactions();
+                DG_Products.DataSource = BL_Sales.TransactionData;
+
+                DG_Products.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                DG_Products.MultiSelect = false;
+                DG_Products.ReadOnly = true;
+
+                DG_OrderDetails.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                DG_OrderDetails.MultiSelect = false;
+                DG_OrderDetails.ReadOnly = true;
+
+                DG_Products.Columns["order_ids"].HeaderText = "Order Number";
+                DG_Products.Columns["customer_name"].HeaderText = "Customer Name";
+                DG_Products.Columns["customer_address"].HeaderText = "Delivery Address";
+                DG_Products.Columns["customer_contact"].HeaderText = "Contact Number";
+                DG_Products.Columns["number_of_products"].HeaderText = "Number Of Products";
+                DG_Products.Columns["number_of_items"].HeaderText = "Number Of Items";
+                DG_Products.Columns["total_price"].HeaderText = "Total Price";
+                DG_Products.Columns["purchased_date"].HeaderText = "Purchased Date";
+                DG_Products.Columns["order_status"].HeaderText = "Order Status";
+
+                DG_Products.Columns["customer_image"].Visible = false;
+                DG_Products.Columns["order_status_id"].Visible = false;
+
+                foreach (DataGridViewColumn col in DG_Products.Columns)
+                {
+                    col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    col.HeaderCell.Style.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Pixel);
+                }
+
+                Date_Filter.Format = DateTimePickerFormat.Custom;
+                Date_Filter.CustomFormat = "ddd dd MMM yyyy";
+
+                OrderDetails.Visible = false;
+                btn_CancelOrder.Visible = false;
+                btn_Checkout.Visible = false;
+                btn_OrderRecieved.Visible = false;
+                Lbl_ProcessCompleted.Visible = false;
+                Lbl_CancelledOrder.Visible = false;
+
+                DG_Products.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                DG_OrderDetails.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
-
-            Date_Filter.Format = DateTimePickerFormat.Custom;
-            Date_Filter.CustomFormat = "ddd dd MMM yyyy";
-
-            OrderDetails.Visible = false;
-            btn_CancelOrder.Visible = false;
-            btn_Checkout.Visible = false;
-            btn_OrderRecieved.Visible = false;
-            Lbl_ProcessCompleted.Visible = false;
-            Lbl_CancelledOrder.Visible = false;
+            catch (Exception ex)
+            { }
+            
+            
         }
 
         private void btn_Refresh_Click(object sender, EventArgs e)

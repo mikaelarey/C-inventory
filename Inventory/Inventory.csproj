@@ -179,11 +179,11 @@
     <Compile Include="Forms\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Main.cs">
+    <Compile Include="Forms\UC_Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Main.Designer.cs">
-      <DependentUpon>Main.cs</DependentUpon>
+    <Compile Include="Forms\UC_Main.Designer.cs">
+      <DependentUpon>UC_Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Products.cs">
       <SubType>Form</SubType>
@@ -356,8 +356,8 @@
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Main.resx">
-      <DependentUpon>Main.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\UC_Main.resx">
+      <DependentUpon>UC_Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Products.resx">
       <DependentUpon>Products.cs</DependentUpon>
@@ -426,7 +426,9 @@
     <EmbeddedResource Include="ReceiptReport.rdlc" />
     <EmbeddedResource Include="SalesReport.rdlc" />
     <EmbeddedResource Include="TransactionReport.rdlc" />
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="app.manifest">
       <SubType>Designer</SubType>
     </None>
