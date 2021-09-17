@@ -345,6 +345,7 @@
             this.btn_Refresh.TabIndex = 49;
             this.btn_Refresh.Text = "Reload Data";
             this.btn_Refresh.UseVisualStyleBackColor = false;
+            this.btn_Refresh.Visible = false;
             this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
             // label1
@@ -396,7 +397,6 @@
 
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Label label8;
@@ -415,11 +415,12 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label Lbl_UserCount;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_Refresh;
+        public System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.Label Lbl_UserCount;
     }
 }

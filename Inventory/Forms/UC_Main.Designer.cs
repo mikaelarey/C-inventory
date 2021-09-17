@@ -63,7 +63,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(861, 42);
+            this.panel1.Size = new System.Drawing.Size(931, 42);
             this.panel1.TabIndex = 1;
             // 
             // panel2
@@ -74,7 +74,7 @@
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(596, 0);
+            this.panel2.Location = new System.Drawing.Point(666, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(265, 42);
             this.panel2.TabIndex = 0;
@@ -130,7 +130,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel5.Location = new System.Drawing.Point(0, 42);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(118, 450);
+            this.panel5.Size = new System.Drawing.Size(118, 536);
             this.panel5.TabIndex = 2;
             // 
             // btn_UserAccounts
@@ -246,7 +246,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(118, 42);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(743, 450);
+            this.panel6.Size = new System.Drawing.Size(813, 536);
             this.panel6.TabIndex = 3;
             // 
             // menu1
@@ -255,7 +255,7 @@
             this.menu1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.menu1.Location = new System.Drawing.Point(0, 0);
             this.menu1.Name = "menu1";
-            this.menu1.Size = new System.Drawing.Size(743, 450);
+            this.menu1.Size = new System.Drawing.Size(813, 536);
             this.menu1.TabIndex = 5;
             // 
             // inventory1
@@ -264,7 +264,7 @@
             this.inventory1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.inventory1.Location = new System.Drawing.Point(0, 0);
             this.inventory1.Name = "inventory1";
-            this.inventory1.Size = new System.Drawing.Size(743, 450);
+            this.inventory1.Size = new System.Drawing.Size(813, 536);
             this.inventory1.TabIndex = 4;
             // 
             // reports1
@@ -273,7 +273,7 @@
             this.reports1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.reports1.Location = new System.Drawing.Point(0, 0);
             this.reports1.Name = "reports1";
-            this.reports1.Size = new System.Drawing.Size(743, 450);
+            this.reports1.Size = new System.Drawing.Size(813, 536);
             this.reports1.TabIndex = 3;
             // 
             // sales1
@@ -282,7 +282,7 @@
             this.sales1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sales1.Location = new System.Drawing.Point(0, 0);
             this.sales1.Name = "sales1";
-            this.sales1.Size = new System.Drawing.Size(743, 450);
+            this.sales1.Size = new System.Drawing.Size(813, 536);
             this.sales1.TabIndex = 2;
             // 
             // settings1
@@ -291,7 +291,7 @@
             this.settings1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.settings1.Location = new System.Drawing.Point(0, 0);
             this.settings1.Name = "settings1";
-            this.settings1.Size = new System.Drawing.Size(743, 450);
+            this.settings1.Size = new System.Drawing.Size(813, 536);
             this.settings1.TabIndex = 1;
             // 
             // userAccounts1
@@ -300,17 +300,19 @@
             this.userAccounts1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userAccounts1.Location = new System.Drawing.Point(0, 0);
             this.userAccounts1.Name = "userAccounts1";
-            this.userAccounts1.Size = new System.Drawing.Size(743, 450);
+            this.userAccounts1.Size = new System.Drawing.Size(813, 536);
             this.userAccounts1.TabIndex = 0;
             // 
             // UC_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(861, 492);
+            this.ClientSize = new System.Drawing.Size(931, 578);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "UC_Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inventory Management System";

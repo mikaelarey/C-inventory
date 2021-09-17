@@ -11,7 +11,7 @@ namespace Inventory.DataLayer
 {
     class DL_Sales
     {
-        public static DataTable Get_All_Transactions()
+        public static DataTable Get_All_Transactions(int order_status_id)
         {
             string SQLCommand = @"SELECT orders.order_id as order_ids,
 	                                     CONCAT(customer.first_name, ' ', customer.last_name) as customer_name,
@@ -44,7 +44,8 @@ namespace Inventory.DataLayer
                                   INNER JOIN orders 
                                     ON customer.customer_id = orders.customer_id
                                   INNER JOIN order_status
-                                    ON orders.order_status_id = order_status.order_status_id;";
+                                    ON orders.order_status_id = order_status.order_status_id
+                                  WHERE orders.order_status_id IN (" + order_status_id + ");";
 
             DataTable dt = new DataTable();
             try

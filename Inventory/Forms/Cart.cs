@@ -142,6 +142,9 @@ namespace Inventory.Forms
             if (BL_Cart.Save_Cart(Convert.ToInt32(Lbl_Customer_ID.Text)))
             {
                 MessageBox.Show("Cart has been successfully saved and ready for checkout", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                BL_Sales.Get_All_Transactions(1);
+                
                 this.Hide();
                 this.Dispose();
 

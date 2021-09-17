@@ -97,6 +97,7 @@
             this.btn_Refresh.TabIndex = 45;
             this.btn_Refresh.Text = "Reload Data";
             this.btn_Refresh.UseVisualStyleBackColor = false;
+            this.btn_Refresh.Visible = false;
             this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
             // label1
@@ -458,9 +459,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.DataGridView DG_Products;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel ProductDetails;
@@ -487,6 +486,8 @@
         private System.Windows.Forms.Label Lbl_AlreadyAddedToCart;
         private System.Windows.Forms.Label Lbl_NoStocksAvailable;
         private System.Windows.Forms.Button btn_Refresh;
+        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.DataGridView DG_Products;
 
     }
 }

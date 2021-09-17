@@ -24,7 +24,7 @@ namespace Inventory.Forms.UserControls.MainUserControl
         {
             try
             {
-                BL_Sales.Get_All_Transactions();
+                BL_Sales.Get_All_Transactions(1);
                 DG_Products.DataSource = BL_Sales.TransactionData;
 
                 DG_Products.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -75,7 +75,7 @@ namespace Inventory.Forms.UserControls.MainUserControl
 
         private void btn_Refresh_Click(object sender, EventArgs e)
         {
-            BL_Sales.Get_All_Transactions();
+            BL_Sales.Get_All_Transactions(1);
             DG_Products.DataSource = BL_Sales.TransactionData;
         }
 
@@ -232,7 +232,7 @@ namespace Inventory.Forms.UserControls.MainUserControl
                 if (Is_Stocks_Sufficient())
                 {
                     MessageBox.Show("Order has been successfully checked out.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    BL_Sales.Get_All_Transactions();
+                    BL_Sales.Get_All_Transactions(1);
                     DG_Products.DataSource = BL_Sales.TransactionData;
                     BL_Sales.Proceed_To_Checkout = false;
                     Reset_ReceiptData();
@@ -287,7 +287,7 @@ namespace Inventory.Forms.UserControls.MainUserControl
 
             else MessageBox.Show("Unable to complete order", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            BL_Sales.Get_All_Transactions();
+            BL_Sales.Get_All_Transactions(2);
             DG_Products.DataSource = BL_Sales.TransactionData;
         }
 
@@ -312,7 +312,25 @@ namespace Inventory.Forms.UserControls.MainUserControl
                 MessageBox.Show("Order has been successfully cancelled.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else MessageBox.Show("Unable to cancel order.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            BL_Sales.Get_All_Transactions();
+            BL_Sales.Get_All_Transactions(1);
+            DG_Products.DataSource = BL_Sales.TransactionData;
+        }
+
+        private void btn_forCheckout_Click(object sender, EventArgs e)
+        {
+            BL_Sales.Get_All_Transactions(1);
+            DG_Products.DataSource = BL_Sales.TransactionData;
+        }
+
+        private void btn_forDelivery_Click(object sender, EventArgs e)
+        {
+            BL_Sales.Get_All_Transactions(2);
+            DG_Products.DataSource = BL_Sales.TransactionData;
+        }
+
+        private void btn_completed_Click(object sender, EventArgs e)
+        {
+            BL_Sales.Get_All_Transactions(3);
             DG_Products.DataSource = BL_Sales.TransactionData;
         }
     }

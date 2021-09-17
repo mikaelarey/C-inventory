@@ -76,6 +76,9 @@
             this.DG_OrderDetails = new System.Windows.Forms.DataGridView();
             this.panel10 = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
+            this.btn_forCheckout = new System.Windows.Forms.Button();
+            this.btn_forDelivery = new System.Windows.Forms.Button();
+            this.btn_completed = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.ProductDetails.SuspendLayout();
@@ -166,6 +169,7 @@
             this.btn_Refresh.TabIndex = 48;
             this.btn_Refresh.Text = "Reload Data";
             this.btn_Refresh.UseVisualStyleBackColor = false;
+            this.btn_Refresh.Visible = false;
             this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
             // panel2
@@ -532,6 +536,9 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.btn_completed);
+            this.panel4.Controls.Add(this.btn_forDelivery);
+            this.panel4.Controls.Add(this.btn_forCheckout);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.Search);
@@ -551,6 +558,7 @@
             this.label2.Size = new System.Drawing.Size(55, 18);
             this.label2.TabIndex = 9;
             this.label2.Text = "Search";
+            this.label2.Visible = false;
             // 
             // label3
             // 
@@ -560,6 +568,7 @@
             this.label3.Size = new System.Drawing.Size(169, 18);
             this.label3.TabIndex = 9;
             this.label3.Text = "Cart / Transactions Lists";
+            this.label3.Visible = false;
             // 
             // Search
             // 
@@ -568,6 +577,7 @@
             this.Search.Name = "Search";
             this.Search.Size = new System.Drawing.Size(195, 24);
             this.Search.TabIndex = 0;
+            this.Search.Visible = false;
             // 
             // panel8
             // 
@@ -616,6 +626,54 @@
             this.label15.Size = new System.Drawing.Size(187, 18);
             this.label15.TabIndex = 9;
             this.label15.Text = "Selected Cart / Transaction";
+            // 
+            // btn_forCheckout
+            // 
+            this.btn_forCheckout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
+            this.btn_forCheckout.FlatAppearance.BorderSize = 0;
+            this.btn_forCheckout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(47)))), ((int)(((byte)(46)))));
+            this.btn_forCheckout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_forCheckout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_forCheckout.ForeColor = System.Drawing.Color.White;
+            this.btn_forCheckout.Location = new System.Drawing.Point(0, 2);
+            this.btn_forCheckout.Name = "btn_forCheckout";
+            this.btn_forCheckout.Size = new System.Drawing.Size(107, 32);
+            this.btn_forCheckout.TabIndex = 49;
+            this.btn_forCheckout.Text = "For Checkout";
+            this.btn_forCheckout.UseVisualStyleBackColor = false;
+            this.btn_forCheckout.Click += new System.EventHandler(this.btn_forCheckout_Click);
+            // 
+            // btn_forDelivery
+            // 
+            this.btn_forDelivery.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
+            this.btn_forDelivery.FlatAppearance.BorderSize = 0;
+            this.btn_forDelivery.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(47)))), ((int)(((byte)(46)))));
+            this.btn_forDelivery.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_forDelivery.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_forDelivery.ForeColor = System.Drawing.Color.White;
+            this.btn_forDelivery.Location = new System.Drawing.Point(108, 2);
+            this.btn_forDelivery.Name = "btn_forDelivery";
+            this.btn_forDelivery.Size = new System.Drawing.Size(107, 32);
+            this.btn_forDelivery.TabIndex = 50;
+            this.btn_forDelivery.Text = "For Delivery";
+            this.btn_forDelivery.UseVisualStyleBackColor = false;
+            this.btn_forDelivery.Click += new System.EventHandler(this.btn_forDelivery_Click);
+            // 
+            // btn_completed
+            // 
+            this.btn_completed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
+            this.btn_completed.FlatAppearance.BorderSize = 0;
+            this.btn_completed.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(47)))), ((int)(((byte)(46)))));
+            this.btn_completed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_completed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_completed.ForeColor = System.Drawing.Color.White;
+            this.btn_completed.Location = new System.Drawing.Point(216, 2);
+            this.btn_completed.Name = "btn_completed";
+            this.btn_completed.Size = new System.Drawing.Size(107, 32);
+            this.btn_completed.TabIndex = 51;
+            this.btn_completed.Text = "Completed";
+            this.btn_completed.UseVisualStyleBackColor = false;
+            this.btn_completed.Click += new System.EventHandler(this.btn_completed_Click);
             // 
             // Sales
             // 
@@ -689,7 +747,6 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.DataGridView DG_Products;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -705,5 +762,9 @@
         private System.Windows.Forms.Button btn_OrderRecieved;
         private System.Windows.Forms.Label Lbl_OrderStatusId;
         private System.Windows.Forms.Label Lbl_CancelledOrder;
+        private System.Windows.Forms.Button btn_completed;
+        private System.Windows.Forms.Button btn_forDelivery;
+        private System.Windows.Forms.Button btn_forCheckout;
+        public System.Windows.Forms.DataGridView DG_Products;
     }
 }

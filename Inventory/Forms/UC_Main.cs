@@ -29,6 +29,7 @@ namespace Inventory.Forms
             btn_Inventory.Visible = (AuthenticatedUser.InventoryAccess == 1);
             btn_Sales.Visible = (AuthenticatedUser.SalesAccess == 1);
             btn_Settings.Visible = (AuthenticatedUser.DeliveryAccess == 1);
+            btn_UserAccounts.Visible = (AuthenticatedUser.HasUserAccess == 1);
 
             this.WindowState = FormWindowState.Maximized;
         }
@@ -69,16 +70,20 @@ namespace Inventory.Forms
         private void btn_Menu_Click(object sender, EventArgs e)
         {
             Set_Controls_Visibility(menu1, btn_Menu);
+            menu1.dataGridView1.DataSource = Inventory.BusinessLayer.BL_Menu.Get_Best_Seller();
+            menu1.Lbl_UserCount.Text = (Inventory.BusinessLayer.BL_Menu.User_Count()).ToString();
         }
 
         private void btn_Inventory_Click(object sender, EventArgs e)
         {
             Set_Controls_Visibility(inventory1, btn_Inventory);
+            inventory1.DG_Products.DataSource = Inventory.BusinessLayer.BL_Product.Get_Products_By_Search("");
         }
 
         private void btn_Sales_Click(object sender, EventArgs e)
         {
             Set_Controls_Visibility(sales1, btn_Sales);
+            sales1.DG_Products.DataSource = Inventory.BusinessLayer.BL_Sales.TransactionData;
         }
 
         private void btn_Settings_Click(object sender, EventArgs e)

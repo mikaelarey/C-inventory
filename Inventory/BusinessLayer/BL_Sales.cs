@@ -16,12 +16,14 @@ namespace Inventory.BusinessLayer
         public static DataTable ProductsData = new DataTable("productsData");
         public static DataTable TransactionData = new DataTable("transactionData");
 
+        public static int ActiveOrderStatus { get; set; }
+
         public static bool Proceed_To_Checkout = false;
 
-        public static void Get_All_Transactions()
+        public static void Get_All_Transactions(int order_status_id)
         {
             TransactionData.Clear();
-            TransactionData = DL_Sales.Get_All_Transactions();
+            TransactionData = DL_Sales.Get_All_Transactions(order_status_id);
 
             foreach (DataRow row in TransactionData.Rows)
             {

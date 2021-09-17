@@ -20,5 +20,18 @@ namespace Inventory.Models
         public static int SalesModify { get; set; }
         public static int DeliveryAccess { get; set; }
         public static int DeliveryModify { get; set; }
+
+        public static int HasUserAccess 
+        {
+            get 
+            {
+                return ((InventoryAccess == 1)
+                    && (InventoryModify == 1)
+                    && (SalesAccess == 1)
+                    && (SalesModify == 1)
+                    && (DeliveryAccess == 1)
+                    && (DeliveryModify == 1)) ? 1 : 0;
+            }
+        }
     }
 }
